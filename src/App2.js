@@ -6,13 +6,16 @@ import "react-datepicker/dist/react-datepicker.css";
 
 function App2() {
   const [startDate, setStartDate] = useState(new Date());
+  const [checked, setChecked] = React.useState({ male: false, female: false });
 
   const [form, setFormData] = useState({
     name: "",
     age: "",
+    phone: "",
     email: "",
     password: "",
     CoPassword: "",
+    essay: "",
   });
 
   const handleAllChange = (event) => {
@@ -20,15 +23,37 @@ function App2() {
   };
   const handleSubmit = (event) => {
     event.preventDefault();
-    if (form.password === form.CoPassword && form.password !== "") {
-      return console.log("good");
-    } else return console.log("please wrong");
+    if (
+      form.password === form.CoPassword &&
+      form.password !== "" &&
+      checked.male !== checked.female
+    ) {
+      return alert("YESSSSSS");
+    } else return alert("NOOOOOO");
   };
   console.log({ form });
 
   return (
     <div className="App">
       <form onSubmit={handleSubmit}>
+        <label htmlFor="day">Gender: </label>
+        <label htmlFor="ck-Male">
+          <input
+            type="checkbox"
+            defaultChecked={checked.male}
+            onChange={() => setChecked(!checked.male)}
+          />
+          Male
+        </label>
+        <label htmlFor="ck-Female">
+          <input
+            type="checkbox"
+            defaultChecked={checked.female}
+            onChange={() => setChecked(!checked.female)}
+          />
+          Female
+        </label>
+        <br />
         <label htmlFor="day">Birthday: </label>
         <DatePicker
           selected={startDate}
@@ -36,7 +61,6 @@ function App2() {
         />
         <br />
         <label htmlFor="name">Name: </label>
-
         <input
           type="text"
           name="name"
@@ -52,9 +76,17 @@ function App2() {
           value={form.age}
         />
         <br />
+        <label htmlFor="age">Phone: </label>
+        <input
+          type="number"
+          name="phone"
+          onChange={handleAllChange}
+          value={form.phone}
+        />
+        <br />
         <label htmlFor="email">Email: </label>
         <input
-          type="text"
+          type="email"
           name="email"
           onChange={handleAllChange}
           value={form.email}
@@ -74,6 +106,15 @@ function App2() {
           name="CoPassword"
           onChange={handleAllChange}
           value={form.CoPassword}
+        />
+        <br />
+        <label htmlFor="name">Essay: </label>
+        <input
+          type="text"
+          class="boxT"
+          name="essay"
+          onChange={handleAllChange}
+          value={form.essay}
         />
         <br />
         <input type="submit" value="Submit" />

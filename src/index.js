@@ -10,6 +10,8 @@ ReactDOM.render(
   <React.StrictMode>
     <div>
       <App />
+      <br />
+
       <App2 />
     </div>
   </React.StrictMode>,
