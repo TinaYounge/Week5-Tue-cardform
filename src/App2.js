@@ -39,7 +39,8 @@ function App2() {
         <label htmlFor="day">Gender: </label>
         <label htmlFor="ck-Male">
           <input
-            type="checkbox"
+            type="radio"
+            name="fav_language2"
             defaultChecked={checked.male}
             onChange={() => setChecked(!checked.male)}
           />
@@ -47,7 +48,8 @@ function App2() {
         </label>
         <label htmlFor="ck-Female">
           <input
-            type="checkbox"
+            type="radio"
+            name="fav_language2"
             defaultChecked={checked.female}
             onChange={() => setChecked(!checked.female)}
           />
