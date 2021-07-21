@@ -1,8 +1,8 @@
 import "./App.css";
 import React from "react";
 import { useState } from "react";
-import Result from "./component/Result";
-import Button from "./component/Button";
+import Result from "./Result";
+import Button from "./Button";
 
 function App() {
   const [count, setCount] = useState(0);
@@ -12,11 +12,11 @@ function App() {
   return (
     <div className="App">
       <h2>Demo</h2>
-      <Button handle={handleAdd} value={1} />
-      <Button handle={handleAdd} value={-10} />
+      <Button handleAdd={handleAdd} value={1} />
+      <Button handleAdd={handleAdd} value={-10} />
       <Result count={count} />
-      <Button handle={handleAdd} value={1} />
-      <Button handle={handleAdd} value={10} />
+      <Button handleAdd={handleAdd} value={1} />
+      <Button handleAdd={handleAdd} value={10} />
     </div>
   );
 }
