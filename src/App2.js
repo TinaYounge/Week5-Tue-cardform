@@ -1,8 +1,12 @@
 import "./App.css";
 import React from "react";
 import { useState } from "react";
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
 
 function App2() {
+  const [startDate, setStartDate] = useState(new Date());
+
   const [form, setFormData] = useState({
     name: "",
     age: "",
@@ -25,7 +29,14 @@ function App2() {
   return (
     <div className="App">
       <form onSubmit={handleSubmit}>
+        <label htmlFor="day">Birthday: </label>
+        <DatePicker
+          selected={startDate}
+          onChange={(date) => setStartDate(date)}
+        />
+        <br />
         <label htmlFor="name">Name: </label>
+
         <input
           type="text"
           name="name"
